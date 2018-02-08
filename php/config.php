@@ -3,7 +3,7 @@
 $servername = "mysql3.hostica.com";
 $username = "Mdgeise_user";
 $password = "L1b3rty_W4y";
-$dbname = "Mdgeise_CSIS316";
+$dbname = "Mdgeise_CSIS408_GP1";
 
 // Create connection	
 $conn = mysqli_connect($servername, $username, $password, $dbname);
