@@ -1,8 +1,8 @@
 <?php
 //info for connecting to db
 $servername = "mysql3.hostica.com";
-$username = "Mdgeise_CSIS316";
-$password = "CSIS316A";
+$username = "Mdgeise_user";
+$password = "L1b3rty_W4y";
 $dbname = "Mdgeise_CSIS316";
 
 // Create connection	
