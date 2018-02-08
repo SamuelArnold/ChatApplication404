@@ -1,1 +1,16 @@
-hi, my name's matt
+This Project was Created by 
+
+Team Leader Sam Arnold 
+Tyler Cypher
+Andrew Hall
+Matt G 
+
+Assignments-
+
+Login/ Logout / Registration - Mathew G
+
+UX/ UI - Tyler
+
+Connection Security -  Sam
+
+Chat - Andrew H.
