@@ -3,51 +3,22 @@
 <head>
     <title>Chat App</title>
 	<b> Chat Applicationssss </b>
+	
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
-
+	
     <!-- CSS stylesheets -->
     <link rel="stylesheet" href="css/stylesheet.css" />
-
 </head>
-<body>
-    <!-- JavaScript files -->
-    <script type="text/javascript" src="js/chat.js" ></script>
-	
-	
-	<p id="demo">Enter Chat.</p>
-	<button type="button" onclick="loadDoc()">Load Logs</button>
-	
-	    <!-- Ajax -->
-		<script>
-		function loadDoc() {
-		  var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-			  document.getElementById("demo").innerHTML = this.responseText;
-			}
-		  };
-		  xhttp.open("GET", "log.txt", true);
-		  xhttp.send();
-		}
-		</script>
-		
-		
-		
-    <textarea id="data">Enter some content here you want to save as a file</textarea>
-    <button id="save" onclick="save();return false;">Save</button>
-    <div id="response"></div>
 
-	  <script type="text/javascript">
-            $(function () {
-                $.get("log.txt", function (data) {
-                    $("#appendToThis").append(data);
-                });
-            });
-        </script>
-		     <div id="appendToThis"></div>
+<body>
+	<FORM NAME="myform" ACTION="" METHOD="GET">Enter something in the box: <BR>
+	<INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
+	<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
 		
+    <!-- JavaScript files -->
+	<script src="js/chat.js"></script>
 		
 </body>
 
