@@ -3,26 +3,29 @@ body
     background: #AAA;
 }
 
+#title
+{
+    margin-left: 20px;
+    color: #333;
+    font-style: italic;
+}
+
 #container
 {
     width: 400px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 200px;
+    margin-top: 180px;
     text-align: center;
     color: #222;
 }
 
-#title
+#heading
 {
     color: #9A1B29;
     font-weight: bolder;
     margin-bottom: 15%;
-}
-
-#login_form
-{
-
 }
 
 p
