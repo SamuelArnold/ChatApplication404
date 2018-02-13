@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>Account Creation</title>
-	<b> Create Your Account </b>
-	
+	<h2>Create Your Account</h2>
+    
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -12,18 +12,53 @@
     <link rel="stylesheet" href="css/stylesheet.css" />
 </head>
 
-<body>
-	<form name="myform" action="" method="GET">
-        Username: 
-	   <input type="text" name="username" value="" maxlength="20"><br>
-        Password: 
-	   <input type="text" name="password1" value="" maxlength="20"><br>
-        Confirm Password: 
-	   <input type="text" name="password2" value="" maxlength="20"><br>
-        
-	   <input type="submit" name="button" value="Submit" onClick="">
-    </form>
-	
-</body>
+<body>	
+    <!-- php re-write -->
+    <?php
+    // define variables and set to empty values
+    $nameErr = $passErr = $pass1Err = $pass2Err = "";
+    $name = $pass1 = $pass2 = "";
+    
+    //check if name is empty
+    if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+    } 
 
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z0-9 ]*$/",$name)) {
+      $nameErr = "Only letters, numbers and white space allowed.";
+    }
+
+    if (empty($_POST["pass1"])) {
+    $pass1Err = "Password is required";
+    } 
+
+    if (empty($_POST["pass2"])) {
+    $pass2Err = "Password confirmation is required";
+    } 
+    
+    //verify input integrity
+    if ($nameErr == "" && $emailErr == "" && $genderErr == "" && $websiteErr == "")
+    {
+    }
+
+    ?>
+
+    <p><span class="error">* indicates required field.</span></p>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">  
+    Enter Username: <input type="text" name="name" value="">
+    <span class="error">* </span>
+    <br/><br/>
+    Enter Password: <input type="password" name="email" value="">
+    <span class="error">* </span>
+    <br/><br/>
+    Re-enter Password: <input type="password" name="website" value="">
+    <span class="error">* </span>
+  
+    <br/><br/>
+    <input type="submit" name="submit" value="Submit"> 
+
+    </form>
+
+</body>
 </html>
