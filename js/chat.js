@@ -13,7 +13,7 @@ function testResults (form) {
 	alert(chat[1]);
 }
 
-function moveArray(inputt) {
+function moveArray(input) {
 	
     chat[4] =chat[5];
 	chat[3] =chat[4];
