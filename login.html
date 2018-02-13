@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Account Creation</title>
-	<b> Create Your Account </b>
 
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -13,14 +12,19 @@
 </head>
 
 <body>
-	<form name="myform" action="" method="GET">
-        Username:
-	   <input type="text" name="username" value="" maxlength="20"><br>
-        Password:
-	   <input type="text" name="password1" value="" maxlength="20"><br>
+    <div id="container">
+        <h1 id="title">Login Your Account</h1>
 
-	   <input type="submit" name="button" value="Submit" onClick="">
-    </form>
+	   <form id="login_form" name="myform" action="" method="GET">
+           <p>Username</p>
+           <input id="username" type="text" name="username" value="" maxlength="20">
+           <p>Password</p>
+	       <input id="password" type="text" name="password1" value="" maxlength="20">
+           <br>
+           <input id="submit_button" type="submit" name="button" value="Submit" onClick="">
+        </form>
+
+    </div>
 
 </body>
 
