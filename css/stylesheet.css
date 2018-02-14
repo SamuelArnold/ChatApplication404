@@ -26,6 +26,7 @@ body
     color: #9A1B29;
     font-weight: bolder;
     margin-bottom: 15%;
+    display: none;
 }
 
 p
@@ -42,9 +43,26 @@ input
     background: #DDD;
 }
 
+#p_username
+{
+    display: none;
+}
+
+#username
+{
+    display: none;
+}
+
+#p_password
+{
+    display: none;
+}
+
+
 #password
 {
     margin-bottom: 10%;
+    display: none;
 }
 
 #submit_button
@@ -55,6 +73,8 @@ input
     color: #FFF;
     border: none;
     border-radius: 17px;
+    display: none;
+
 }
 
 
