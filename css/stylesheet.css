@@ -4,11 +4,26 @@ body
     font-family: 'Nunito Sans', sans-serif;
 }
 
+a
+{
+    text-decoration: none;
+}
+
 #title
 {
+    width: 200px;
     margin-left: 20px;
     color: #333;
     font-style: italic;
+}
+
+#sign_up_button
+{
+    float: right;
+    margin-right: 15%;
+    margin-top: -50px;
+    padding-top: 10px;
+    text-align: center;
 }
 
 #container
@@ -103,14 +118,18 @@ input
 
 #submit_button
 {
+    display: none;
+
+}
+
+.button
+{
     height: 35px;
     width: 100px;
     background: #9A1B29;
     color: #FFF;
     border: none;
     border-radius: 17px;
-    display: none;
-
 }
 
 
