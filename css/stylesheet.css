@@ -1,0 +1,97 @@
+body
+{
+    background: #AAA;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+#title
+{
+    margin-left: 20px;
+    color: #333;
+    font-style: italic;
+}
+
+#container
+{
+    width: 400px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 180px;
+    text-align: center;
+    color: #222;
+}
+
+#heading
+{
+    color: #9A1B29;
+    font-weight: 100;
+    margin-bottom: 15%;
+    display: none;
+}
+
+p
+{
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+input
+{
+    height: 25px;
+    border-radius: 10px;
+    border: none;
+    background: #DDD;
+}
+
+#p_username
+{
+    display: none;
+}
+
+#username
+{
+    display: none;
+}
+
+#p_password
+{
+    display: none;
+}
+
+
+#password
+{
+    margin-bottom: 10%;
+    display: none;
+}
+
+#submit_button
+{
+    height: 35px;
+    width: 100px;
+    background: #9A1B29;
+    color: #FFF;
+    border: none;
+    border-radius: 17px;
+    display: none;
+
+}
+
+
+/*
+
+COLORS
+#9A1B29 rgb(154,27,41)
+#BE906C rgb(190,144,108)
+#E8E6E9 rgb(232,230,233)
+#757881 rgb(117,120,129)
+#AAA
+#222    rgb(34,34,34)
+#FFF
+
+FONTS
+font-family: 'Nunito Sans', sans-serif;
+
+*/
+
