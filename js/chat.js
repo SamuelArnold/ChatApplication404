@@ -9,20 +9,19 @@ function testResults (form) {
     var TestVar = form.inputbox.value;
     alert ("You typed: " + TestVar);
 	moveArray(TestVar);
-	alert(chat[0]);
-	alert(chat[1]);
-}
-
-function moveArray(input) {
-	
-    chat[4] =chat[5];
-	chat[3] =chat[4];
-	chat[2] =chat[3];
-	chat[1] =chat[2];
-	chat[0] = input;
 }
 
 
-window.onload = function(){
+var socket = io('ec2-18-216-64-197.us-east-2.compute.amazonaws.com:8080');
+socket.on('connect', function () {
+socket.send('hi');
+
+
+
+
+socket.on('message', function (msg) {
+      // my msg
+    });
+  });
 		
-}
+		
