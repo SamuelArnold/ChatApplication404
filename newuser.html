@@ -60,15 +60,13 @@
 
 
         <form id="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">
-            <p id="p_username">Enter Username</p>
+            <p id="p_username">Enter Username<span id="username_error" class="error"> * </span></p>
             <input id="username" type="text" name="name" value="">
-            <span id="username_error" class="error">* </span>
-            <p id="p_password">Enter Password</p>
+            <p id="p_password">Enter Password<span id="password_error" class="error"> * </span></p>
             <input id="password" type="password" name="email" value="">
-            <span id="password_error" class="error">* </span>
-            <p id="p_re_password">Re-enter Password</p>
+            <p id="p_re_password">Re-enter Password<span id="re_password_error" class="error"> * </span></p>
             <input id="re_password" type="password" name="website" value="">
-            <span id="re_password_error" class="error">* </span>
+
             <br><br>
             <p><span id="required" class="error">* indicates required field.</span></p>
             <br><br>
