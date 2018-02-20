@@ -16,6 +16,8 @@
 	
     <!-- CSS stylesheets -->
 	<link rel="stylesheet" href="css/stylesheet.css">
+
+    <!-- Scripts -->
 	<script src="js/socket.io.js" type="text/javascript"></script>
 	<script src="http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com:80/socket.io/socket.io.js"></script>
 	<script src="js/chat.js"type="text/javascript"></script>
@@ -32,7 +34,7 @@
 			<div class = "col-md-8">
 				<div class = "well">
 					<h3> Online User </h3>
-					<ul = class "list-group" id="user"></ul>
+					<ul  class="list-group" id="user"></ul>
 				</div>
 				<div class = "col-md-8">
 					<div class = "chat" id ="chat"></div>
@@ -76,6 +78,8 @@
     
     <!-- Not sure where you want this but I'm putting the link to account creation here for the moment --> 
         <input type="button" name="button1" value="Create Account" onClick="location.href='newuser.html'">
+
+        <input type="button" name="button1" value="Login" onClick="location.href='login.html'">
         
     <!-- JavaScript files -->
 
