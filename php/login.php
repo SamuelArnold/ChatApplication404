@@ -48,6 +48,7 @@ if($usernamefound == true && $passwordmatch == true)
     echo "User authenticated. Logging in.";
 
     //redirect to chat screen
+    sleep(3);
     echo "<script> location.href='index-test.html'; </script>";
     exit();
 } //end if
