@@ -1,0 +1,167 @@
+body
+{
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/grey-washed-wall.png");
+}
+
+a
+{
+    text-decoration: none;
+}
+
+#title
+{
+    width: 200px;
+    margin-left: 20px;
+    color: #333;
+    font-style: italic;
+}
+
+#textlogo {
+    
+}
+
+#sign_up_button
+{
+    float: right;
+    margin-right: 25px;
+    margin-top: 50px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#header {
+    width: 400px;
+    height: 200px;
+    margin-left: 15px;
+    margin-top: -25px;
+    display: inline;
+}
+
+#container
+{
+    width: 400px;
+    height: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 180px;
+    text-align: center;
+    color: #222;
+}
+
+#heading
+{
+    color: #9A1B29;
+    font-weight: 100;
+    display: none;
+}
+
+#logo {
+    align-content: center;
+}
+
+.error
+{
+    color: #9A1B29;
+}
+
+p
+{
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+input
+{
+    height: 25px;
+    border-radius: 10px;
+    border: none;
+    background: #DDD;
+}
+
+#p_username
+{
+    display: none;
+}
+
+#username
+{
+    display: none;
+}
+
+#username_error
+{
+    display: none;
+}
+
+#p_password
+{
+    display: none;
+}
+
+
+#password
+{
+
+    display: none;
+}
+
+#password_error
+{
+    display: none;
+}
+
+#p_re_password
+{
+    display: none;
+}
+
+#re_password
+{
+    display: none;
+}
+
+#re_password_error
+{
+    display: none;
+}
+
+#required
+{
+    display: none;
+}
+
+#submit_button
+{
+    display: none;
+
+}
+
+.button
+{
+    height: 35px;
+    width: 100px;
+    background: #9A1B29;
+    color: #FFF;
+    border: none;
+    border-radius: 17px;
+}
+
+
+/*
+
+COLORS
+#9A1B29 rgb(154,27,41)
+#BE906C rgb(190,144,108)
+#E8E6E9 rgb(232,230,233)
+#757881 rgb(117,120,129)
+#AAA
+#222    rgb(34,34,34)
+#FFF
+
+FONTS
+font-family: 'Nunito Sans', sans-serif;
+
+*/
+

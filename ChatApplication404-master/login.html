@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChatApp - Login</title>
+
+	<!-- This should set up the tab icon -->
+    <![if !IE]>
+    <link rel="icon" href="imgs/favicon.ico" type="image/x-icon" />
+    <![endif]>
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/ico" />
+
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="css/stylesheet.css" />
+
+    <!-- JQuery -->
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous">
+    </script>
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- <h1 id="title">ChatApp</h1> -->
+    <div id="header">
+        <img src="imgs/mccs_textlogosmall.png"  id="textlogo"/>
+        <a href="newuser.html" id="sign_up_button" class="button">Sign Up</a>
+    </div>
+
+
+    <div id="container">
+        <h1 id="heading">Login To Your Account</h1>
+        <img src="imgs/mccs_logosmall.png" id="logo"/>
+        
+	   <form id="login_form" name="myform" action="" method="GET">
+           <p id="p_username">Username</p>
+           <input id="username" type="text" name="username" value="" maxlength="20">
+           <p id="p_password">Password</p>
+	       <input id="password" type="password" name="password1" value="" maxlength="20">
+           <br><br><br>
+           <input id="submit_button" class="button" type="submit" name="button" value="Submit" onClick="">
+        </form>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="js/login_animation.js" type="text/javascript"></script>
+
+</body>
+
+</html>
