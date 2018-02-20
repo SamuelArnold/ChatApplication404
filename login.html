@@ -38,13 +38,19 @@
     <div id="container">
         <h1 id="heading">Login To Your Account</h1>
 
-	   <form id="login_form" name="myform" action="" method="GET">
+	   <form method="post" id="login_form" action="login.php">
+           <fieldset>
+               <legend class="bold">
+                   Login:
+               </legend>
            <p id="p_username">Username</p>
-           <input id="username" type="text" name="username" value="" maxlength="20">
+           <input id="username" type="text" name="username" value="" maxlength="25">
            <p id="p_password">Password</p>
-	       <input id="password" type="password" name="password1" value="" maxlength="20">
+	       <input id="password" type="password" name="password" value="" maxlength="25">
            <br><br><br>
+           <input type="reset" value="Clear" /><br>
            <input id="submit_button" class="button" type="submit" name="button" value="Submit" onClick="">
+            </fieldset>
         </form>
 
     </div>
