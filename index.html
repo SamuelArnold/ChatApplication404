@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Chat App</title>
-	<b> Chat Applicationssss </b>
+	<b> My Christain Chat Server (MCCS) </b>
 	
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -23,6 +23,8 @@
 </head>
 
 <body>
+
+    <!--Boot strap -->
 	<div class = "container">
 			<div class = "row">
 					<div class = "col-md-4">
@@ -36,7 +38,9 @@
 					<div class = "chat" id ="chat"></div>
 					<form id = "messageForm">
 						<div class = "form-group">
+						<br/>
 						<label> Enter Message </label>
+						<br/>
 						<textarea class = "form-control" id = "message"></textarea>
 						<br/>
 						<input type = "submit" class = "btn btn-primary" value = "Send Message" />
@@ -45,39 +49,30 @@
 				</div>
 			</div>
 		</div>
+		
+		    <!--Client using socket.io -->
 			<script>
 				$(function(){
 					var socket = io.connect('http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com:8080');
-				//socket.on('connect', function(data) {
-				//	socket.emit('join', 'Hello World from client');
-				 //});
 					var $messageForm = $('#messageForm');
 					var $message     = $('#message');
 					var $chat 		 = $('#chat');
+					
+					 <!--send  -->
 					$messageForm.submit(function(e){
 						e.preventDefault();
-						socket.emit('send message', $message.val());
+						socket.emit('send message', 'User: ' + $message.val());
 						$message.val('');
 					});
+					 <!--recieve -->
 					socket.on('new message', function(data){
 						$chat.append('<div class= "well">'+ data.msg+ '</div>' );
 					});
-				});
-				//	var socket = io.connect('ec2-18-216-64-197.us-east-2.compute.amazonaws.com');
-				//socket.on('news', function (data) {
-				 // console.log(data);
-				 // socket.emit('my other event', { my: 'data' });
-				//});
-				
+				});				
 			</script>
 					
 	
 	</div>
-	 <!-- <form name="myform" action="" method="GET">Enter something in the box: <br>--> 
-	 <!-- <input type="text" name="inputbox" value="">--> 
-	 <!-- <input type="button" name="button" value="Click" onClick="testResults(this.form)">--> 
-     <!-- </form>--> 
-	
     
     <!-- Not sure where you want this but I'm putting the link to account creation here for the moment --> 
         <input type="button" name="button1" value="Create Account" onClick="location.href='newuser.html'">
