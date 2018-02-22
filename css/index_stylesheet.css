@@ -1,0 +1,16 @@
+#top_bar
+{
+    color: #FFF;
+    font-style: italic;
+    padding: 10px;
+    height: 100px;
+    background: #333;
+}
+
+#title
+{
+    width: auto;
+    margin-left: 20px;
+    color: #FFF;
+    font-style: italic;
+}
