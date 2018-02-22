@@ -1,16 +1,80 @@
-#top_bar
+body
+{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#nav_bar
 {
     color: #FFF;
     font-style: italic;
     padding: 10px;
-    height: 100px;
+    height: 80px;
     background: #333;
 }
 
 #title
 {
+    float: left;
     width: auto;
-    margin-left: 20px;
     color: #FFF;
-    font-style: italic;
 }
+
+#back_button
+{
+    float: left;
+    margin-top: -60px;
+    margin-left: 90%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.container
+{
+    width: inherit;
+}
+
+#name
+{
+    text-align: center;
+    color: #9A1B29;
+    font-size: 30px;
+}
+
+#chat
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.well
+{
+    margin-top: 10px;
+    background: #9A1B29;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+
+
+/*
+
+COLORS
+#9A1B29 rgb(154,27,41)
+#BE906C rgb(190,144,108)
+#E8E6E9 rgb(232,230,233)
+#757881 rgb(117,120,129)
+#AAA
+#222    rgb(34,34,34)
+#FFF
+
+FONTS
+font-family: 'Nunito Sans', sans-serif;
+
+*/
+
+
