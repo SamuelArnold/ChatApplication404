@@ -116,6 +116,11 @@ input
     display: none;
 }
 
+#clear_button
+{
+    display: none;
+}
+
 #submit_button
 {
     display: none;
