@@ -80,6 +80,10 @@
 					socket.on('new message', function(data){
 						$chat.append('<div class= "well">'+ data.msg+ '</div>' );
 					});
+					
+					socket.on('numOnline', function(data){
+						$chat.append('<div class= "well">'+'System: Current Number Of Users: ' + data.msg+ '</div>' );
+					});
 				});				
 			</script>
 					
