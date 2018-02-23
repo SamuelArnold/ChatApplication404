@@ -1,7 +1,9 @@
 body
 {
-    background: #AAA;
     font-family: 'Nunito Sans', sans-serif;
+    background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/grey-washed-wall.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 a
@@ -20,16 +22,24 @@ a
 #sign_up_button
 {
     float: right;
-    margin-right: 15%;
-    margin-top: -50px;
+    margin-right: 25px;
+    margin-top: 50px;
     padding-top: 10px;
     text-align: center;
+}
+
+#header {
+    width: 400px;
+    height: 200px;
+    margin-left: 15px;
+    margin-top: -25px;
+    display: inline;
 }
 
 #container
 {
     width: 400px;
-    height: auto;
+    height: 800px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 180px;
@@ -41,7 +51,6 @@ a
 {
     color: #9A1B29;
     font-weight: 100;
-    margin-bottom: 15%;
     display: none;
 }
 
@@ -116,11 +125,6 @@ input
     display: none;
 }
 
-#clear_button
-{
-    display: none;
-}
-
 #submit_button
 {
     display: none;
@@ -153,4 +157,3 @@ FONTS
 font-family: 'Nunito Sans', sans-serif;
 
 */
-
