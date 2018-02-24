@@ -1,9 +1,7 @@
 body
 {
     font-family: 'Nunito Sans', sans-serif;
-    background-color: #ffffff;
-    background-image: url("https://www.transparenttextures.com/patterns/grey-washed-wall.png");
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    background-image: url("../imgs/grey-washed-wall.png");
 }
 
 a
@@ -30,7 +28,7 @@ a
 
 #header {
     width: 400px;
-    height: 200px;
+    height: 50px;
     margin-left: 15px;
     margin-top: -25px;
     display: inline;
@@ -38,8 +36,8 @@ a
 
 #container
 {
-    width: 400px;
-    height: 800px;
+    width: 1200px;
+    height: 600px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 180px;
@@ -73,6 +71,10 @@ input
     background: #DDD;
 }
 
+fieldset {
+    border: none;
+}
+    
 #p_username
 {
     display: none;
@@ -93,10 +95,8 @@ input
     display: none;
 }
 
-
 #password
 {
-
     display: none;
 }
 
@@ -128,7 +128,20 @@ input
 #submit_button
 {
     display: none;
+}
 
+#story {
+    margin: 20px;
+    align-content: center;
+    text-align: justify;
+}
+
+#bio1, #bio2, #bio3, #bio4 {
+    height: 600px;
+    width: 300px;
+    margin: 10px;
+    display: inline;
+    outline: 1px dashed red;
 }
 
 .button
