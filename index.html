@@ -34,11 +34,13 @@
 <body>
     <div id="nav_bar">
         <h1 id="title"> My Christian Chat </h1>
-        <!--<a type="button" name="button1" value="Create Account" href="newuser.html"></a>
-        <a type="button" name="button1" value="Login" href="login.html"></a>-->
+        <div id="nav_btn">
+            <a id="create_button" class="nav_button" name="button1"  href="newuser.html">Create Account</a>
+            <a id="login_button" class="nav_button" name="button1" href="login.html">Login</a>
 
-        <!--TODO: Get this button working to go back to rooms page -->
-        <a id="back_button" class="button">Back</a>
+            <!--TODO: Get this button working to go back to rooms page -->
+            <a id="back_button" class="nav_button">Back</a>
+        </div>
     </div>
 
     <!--Boot strap -->
@@ -51,16 +53,12 @@
 					<h3 id="name"> Conversation Name </h3>
 					<ul  class="list-group" id="user"></ul>
 				</div>
-				<div class = "col-md-8">
+				<div id="chat_container" class = "col-md-8">
 					<div class = "chat" id ="chat"></div>
 					<form id = "messageForm">
 						<div class = "form-group">
-						<br/>
-						<label> Enter Message </label>
-						<br/>
-						<textarea class = "form-control" id = "message"></textarea>
-						<br/>
-						<input type = "submit" class = "btn btn-primary" value = "Send Message" />
+						  <textarea class="form-control" id="message"></textarea>
+						  <input id="send_button" type="submit" class = "btn btn-primary" value = "Send Message" />
 						</div>
 					</form>
 				</div>
@@ -74,16 +72,28 @@
 					var $messageForm = $('#messageForm');
 					var $message     = $('#message');
 					var $chat 		 = $('#chat');
+                    var colorChange = false;
 					
 					 <!--send  -->
 					$messageForm.submit(function(e){
 						e.preventDefault();
 						socket.emit('send message', 'User: ' + $message.val());
 						$message.val('');
+
+                        //Used to change colors if you sent message
+                        colorChange = true;
 					});
 					 <!--recieve -->
 					socket.on('new message', function(data){
-						$chat.append('<div class= "well">'+ data.msg+ '</div>' );
+                        if(colorChange){
+                            $chat.append('<div class= "sent">'+ data.msg+ '</div>' );
+                            $chat.scrollTop($chat.prop("scrollHeight")); //scroll to bottom of chat
+                        }
+                        else{
+				            $chat.append('<div class= "well">'+ data.msg+ '</div>' );
+                        }
+
+                        colorChange = false;
 					});
 				});				
 			</script>
@@ -93,7 +103,7 @@
 
         
     <!-- JavaScript files -->
-
+    <script type="text/javascript" src="js/index_page.js"></script>
 		
 </body>
 
