@@ -1,0 +1,57 @@
+#p_username
+{
+    display: inline-block;
+}
+
+#username
+{
+    display: block;
+}
+
+#username_error
+{
+    display: block;
+}
+
+#p_password
+{
+    display: block;
+}
+
+
+#password
+{
+
+    display: block;
+}
+
+#password_error
+{
+    display: block;
+}
+
+#p_re_password
+{
+    display: block;
+}
+
+#re_password
+{
+    display: block;
+}
+
+#re_password_error
+{
+    display: block;
+}
+
+#required
+{
+    display: block;
+}
+
+#submit_button
+{
+    display: block;
+
+}
