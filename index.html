@@ -95,6 +95,18 @@
 
                         colorChange = false;
 					});
+
+                    socket.on('numOnline', function(data){
+						$chat.append('<div class= "well">'+'System: Current Number Of Users: ' + data.msg+ '</div>' );
+							console.log(" # of onloine users"+ data.msg);
+					});
+
+					socket.on('file', function(data){
+						console.log("Recieved File");
+						document.getElementById('imgid').src = 'data:image/jpeg;base64,' + data;
+					});
+
+
 				});				
 			</script>
 
