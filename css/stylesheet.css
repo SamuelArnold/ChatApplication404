@@ -52,6 +52,11 @@ a
     display: none;
 }
 
+#small_logo
+{
+    display: none;
+}
+
 .error
 {
     color: #9A1B29;
@@ -126,6 +131,11 @@ fieldset {
 }
 
 #submit_button
+{
+    display: none;
+}
+
+#clear_button
 {
     display: none;
 }
