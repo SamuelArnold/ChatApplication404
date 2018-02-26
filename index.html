@@ -65,6 +65,7 @@
 			<div class = "col-md-8">
 				<div>
 					<h3 id="name"> Conversation Name </h3>
+                    <h4 id="num_of_users"></h4>
 					<ul  class="list-group" id="user"></ul>
 				</div>
 				<div id="chat_container" class = "col-md-8">
@@ -116,7 +117,7 @@
 					});
 
                     socket.on('numOnline', function(data){
-						$chat.append('<div class= "well">'+'System: Current Number Of Users: ' + data.msg+ '</div>' );
+                        document.getElementById("num_of_users").innerHTML = 'Current Number Of Users: ' + data.msg;
 							console.log(" # of onloine users"+ data.msg);
 					});
 
@@ -163,7 +164,7 @@
 				///// Recieve photos
 				socket.on('img', function(data){
 					console.log("Recieved File img style buddy");
-					var $chat 		 = $('#chat');
+					var $chat = $('#chat');
 					console.log(data);
 					/////////////////////////////////
 					// THIS IS WHAT ADDS THE PHOTOS

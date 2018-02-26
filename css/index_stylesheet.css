@@ -134,7 +134,7 @@ a
     color: white;
     border: none;
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .menu_item:hover
@@ -155,6 +155,12 @@ a
     text-align: center;
     color: #9A1B29;
     font-size: 30px;
+}
+
+#num_of_users
+{
+    margin-top: -30px;
+    text-align: center;
 }
 
 .col-md-8
@@ -191,7 +197,7 @@ a
     background: white;
     color: #9A1B29;
     padding: 10px;
-    border-radius: 10px
+    border-radius: 10px;
 }
 
 #messageForm

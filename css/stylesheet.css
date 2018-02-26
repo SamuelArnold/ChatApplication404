@@ -1,6 +1,6 @@
 body
 {
-    background: #AAA;
+    background-image: url("../imgs/grey-washed-wall.png");
     font-family: 'Nunito Sans', sans-serif;
     height: 100vh;
 }
