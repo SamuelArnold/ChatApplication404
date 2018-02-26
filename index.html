@@ -33,7 +33,7 @@
 
 <body>
     <div id="nav_bar">
-        <h1 id="title"> My Christian Chat </h1>
+        <img id="logo" src="imgs/mccs_textlogo_small.png" >
         <div id="nav_btn">
             <a id="create_button" class="nav_button" name="button1"  href="newuser.html">Create Account</a>
             <a id="login_button" class="nav_button" name="button1" href="login.html">Login</a>
@@ -45,9 +45,8 @@
 
         <!-- drop menu html for small screens -->
         <img id="menu_icon" class="upright" src="imgs/menu_icon.png" />
-
+        <img id="logo_small_screen" src="imgs/mccs_textlogo_small.png" />
         <div id="drop_menu">
-            <div id="space_holder">My Christian Chat</div>
             <a href="login.html"><button class="menu_item" >Login</button></a>
             <a href="newuser.html"><button class="menu_item">Create Account</button></a>
             <!-- TODO: Same as other Back button -->
@@ -73,7 +72,10 @@
 					<form id = "messageForm">
 						<div class = "form-group">
 						  <textarea class="form-control" id="message"></textarea>
-						  <input id="send_button" type="submit" class = "btn btn-primary" value = "Send Message" />
+                            <div id="button_elements">
+						        <input id="send_button" type="submit" class = "btn btn-primary" value = "Send Message" />
+                                <button id="upload_btn" class="btn btn-primary">Prompt for File</button>
+                            </div>
 						</div>
 					</form>
 				</div>
@@ -81,7 +83,7 @@
 		</div>
 
 
-		<p><button id="upload_btn">Prompt for File</button></p>
+
 		<p><label>Choose File: <input type="file" id="upload_input"/></label></p>
 		<div id="file_drop" dropzone="copy" title="drop files for upload">Drop File</div>
 		
