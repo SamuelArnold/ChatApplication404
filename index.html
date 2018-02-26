@@ -38,9 +38,23 @@
             <a id="create_button" class="nav_button" name="button1"  href="newuser.html">Create Account</a>
             <a id="login_button" class="nav_button" name="button1" href="login.html">Login</a>
 
-            <!--TODO: Get this button working to go back to rooms page -->
+            <!--TODO: Get this button working to go back to rooms page. Maybe chang to logout-->
             <a id="back_button" class="nav_button">Back</a>
+
         </div>
+
+        <!-- drop menu html for small screens -->
+        <img id="menu_icon" class="upright" src="imgs/menu_icon.png" />
+
+        <div id="drop_menu">
+            <div id="space_holder">My Christian Chat</div>
+            <a href="login.html"><button class="menu_item" >Login</button></a>
+            <a href="newuser.html"><button class="menu_item">Create Account</button></a>
+            <!-- TODO: Same as other Back button -->
+            <a><button class="menu_item">Back</button></a>
+        </div>
+        <!-- End drop menu html -->
+
     </div>
 
     <!--Boot strap -->
@@ -123,6 +137,7 @@
 				//var socket = io.connect();
 				var socket = io.connect('http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com:8080');
 				var siofu = new SocketIOFileUpload(socket);
+                var colorChange = false;
 
 				// Configure the three ways that SocketIOFileUpload can read files:
 				document.getElementById("upload_btn").addEventListener("click", siofu.prompt, false);
@@ -138,6 +153,7 @@
 				// Do something when a file is uploaded:
 				siofu.addEventListener("complete", function(event){
 					console.log("Upload Work"+ event.success);
+                    colorChange = true;
 					//console.log(event.file);  											// show file contents
 					//document.getElementById('imgid').src = 'data:image/jpeg' + event.file; // show file old way
 					//window.navigator.msSaveOrOpenBlob(event.file, 'File.jpg'); 			// download file
@@ -152,7 +168,14 @@
 					/////////////////////////////////
 					// THIS IS WHAT ADDS THE PHOTOS
 					/////////////////////////////////
-					$chat.append('<div class= "well"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
+                    if(colorChange){
+                        $chat.append('<div class= "sent"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
+                        $chat.scrollTop($chat.prop("scrollHeight")); //scroll to bottom of chat
+                    }else{
+					   $chat.append('<div class= "well"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
+                    }
+
+                    colorChange = false;
 				});
 				socket.on('image', function(data){
 					console.log("Recieved File");

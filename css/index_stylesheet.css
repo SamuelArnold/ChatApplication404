@@ -1,3 +1,9 @@
+*
+{
+    position: relative;
+    z-index: 0;
+}
+
 body
 {
     width: 100%;
@@ -5,6 +11,10 @@ body
     padding: 0;
 }
 
+a
+{
+    color: white;
+}
 
 
 #nav_bar
@@ -28,6 +38,12 @@ body
     color: #FFF;
     border: none;
     border-radius: 17px;
+}
+
+.nav_button:hover
+{
+    color: #9A1B29;
+    background: #FFF;
 }
 
 #title
@@ -60,8 +76,77 @@ body
     padding-top: 10px;
 }
 
+#menu_icon
+{
+    z-index: 100;
+    height: 30px;
+    width: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+/* to rotate icon */
+.rotated {
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -moz-transform: rotate(90deg); /* Firefox */
+  -webkit-transform: rotate(90deg); /* Safari and Chrome */
+  -o-transform: rotate(90deg); /* Opera */
+    transition: all .5s;
+}
+.upright {
+  transform: rotate(0deg);
+  -ms-transform: rotate(0deg); /* IE 9 */
+  -moz-transform: rotate(0deg); /* Firefox */
+  -webkit-transform: rotate(0deg); /* Safari and Chrome */
+  -o-transform: rotate(0deg); /* Opera */
+    transition: all .5s;
+}
+
+/* end rotate icon */
+
+#drop_menu
+{
+    height: auto;
+    margin-top: -50px;
+    background: #9A1B29;
+    display: none;
+}
+
+#space_holder
+{
+    height: 70px;
+    width: 100%;
+    background: #9A1B29;
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 40px;
+}
+
+.menu_item
+{
+    height: 70px;
+    width: 100%;
+    background: #9A1B29;
+    color: white;
+    border: none;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+}
+
+.menu_item:hover
+{
+    background: white;
+    color: #9A1B29;
+    cursor: pointer;
+}
+
 .container
 {
+    z-index: -100;
     width: inherit;
 }
 
@@ -143,6 +228,12 @@ body
     background: #9A1B29;
 }
 
+#send_button:hover
+{
+    color: #9A1B29;
+    background: white;
+}
+
 
 /*** CSS for small screens ***/
 
@@ -162,10 +253,47 @@ body
     {
         margin-left: 50%;
     }
+
 }
+
 
 /** Makes buttons in nav bar a toggle menu **/
 
+@media only screen and (max-width: 750px)
+{
+    #title
+    {
+        display: none;
+    }
+
+    #nav_btn
+    {
+        display: none;
+    }
+
+    #menu_icon
+    {
+        display: inline;
+    }
+
+
+    .col-md-8
+    {
+        width: inherit;
+        margin-left: 20px;
+    }
+
+    #messageForm
+    {
+        width: 100%;
+    }
+
+    .form-group
+    {
+        margin-left: 0px;
+    }
+
+}
 
 
 /*
