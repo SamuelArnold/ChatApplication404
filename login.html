@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ChatApp - Login</title>
+    <title>MCCS - Login</title>
 
 	<!-- This should set up the tab icon -->
     <![if !IE]>
@@ -15,7 +15,10 @@
 
     <!-- CSS stylesheets -->
     <link rel="stylesheet" href="css/stylesheet.css" />
-
+	<noscript>
+        <link rel="stylesheet" href="css/noscript.css" />
+    </noscript>
+	
     <!-- JQuery -->
     <script
 			  src="https://code.jquery.com/jquery-3.3.1.js"
@@ -30,14 +33,16 @@
 
 <body>
 
-        <h1 id="title">ChatApp</h1>
-
+    <div id="header">
+        <img src="imgs/mccs_textlogosmall.png"  id="textlogo"/>
         <a href="newuser.html" id="sign_up_button" class="button">Sign Up</a>
-
+	<a href="about.html" id="sign_up_button" class="button">About</a>
+    </div>
 
     <div id="container">
         <h1 id="heading">Login To Your Account</h1>
-
+	<img src="imgs/mccs_logosmall.png" align="middle" id="small_logo"/>
+        
 	   <form method="post" id="login_form" action="php/login.php">
            <fieldset>
                 <p id="p_username">Username</p>

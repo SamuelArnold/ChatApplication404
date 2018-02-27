@@ -1,8 +1,10 @@
 body
 {
+
     background-image: url("../imgs/grey-washed-wall.png");
     font-family: 'Nunito Sans', sans-serif;
     height: 100vh;
+
 }
 
 a
@@ -21,19 +23,27 @@ a
 #sign_up_button
 {
     float: right;
-    margin-right: 15%;
-    margin-top: -50px;
+    margin-right: 25px;
+    margin-top: 50px;
     padding-top: 10px;
     text-align: center;
 }
 
+#header {
+    width: 400px;
+    height: 50px;
+    margin-left: 15px;
+    margin-top: -25px;
+    display: inline;
+}
+
 #container
 {
-    width: 400px;
-    height: auto;
+    width: 1200px;
+    height: 600px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 180px;
+    margin-top: 20px;
     text-align: center;
     color: #222;
 }
@@ -42,7 +52,11 @@ a
 {
     color: #9A1B29;
     font-weight: 100;
-    margin-bottom: 15%;
+    display: none;
+}
+
+#small_logo
+{
     display: none;
 }
 
@@ -65,6 +79,10 @@ input
     background: #DDD;
 }
 
+fieldset {
+    border: none;
+}
+    
 #p_username
 {
     display: none;
@@ -85,10 +103,8 @@ input
     display: none;
 }
 
-
 #password
 {
-
     display: none;
 }
 
@@ -117,15 +133,28 @@ input
     display: none;
 }
 
+#submit_button
+{
+    display: none;
+}
+
 #clear_button
 {
     display: none;
 }
 
-#submit_button
-{
-    display: none;
+#story {
+    margin: 20px;
+    align-content: center;
+    text-align: justify;
+}
 
+#bio1, #bio2, #bio3, #bio4 {
+    height: 600px;
+    width: 300px;
+    margin: 10px;
+    display: inline;
+    outline: 1px dashed red;
 }
 
 .button
@@ -154,4 +183,3 @@ FONTS
 font-family: 'Nunito Sans', sans-serif;
 
 */
-
