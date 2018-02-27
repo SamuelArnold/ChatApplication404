@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
+<title>MCCS - Login</title>
+
+<!-- This should set up the tab icon -->
+<![if !IE]>
+<link rel="icon" href="imgs/favicon.ico" type="image/x-icon" />
+<![endif]>
+<link rel="shortcut icon" href="imgs/favicon.ico" type="image/ico" />
+
 <meta charset="UTF-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<!-- CSS stylesheets -->
+<link rel="stylesheet" href="css/stylesheet.css" />
+<noscript>
+    <link rel="stylesheet" href="css/noscript.css" />
+</noscript>
+	
+<!-- JQuery -->
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 </head>
+    
 <body>
+<div id="header">
+    <img src="imgs/mccs_textlogosmall.png"  id="textlogo"/>
+    <a href="newuser.html" id="sign_up_button" class="button">Sign Up</a>
+	<a href="about.html" id="sign_up_button" class="button">About</a>
+</div>
+        
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
