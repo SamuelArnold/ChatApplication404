@@ -1,17 +1,10 @@
 <?php
-header('Content-type: text/plain; charset=utf-8');
 error_reporting(E_ALL);
 ini_set('display_errors',1);
 
 //Retrieve the passed values
 $username1 = $_POST['username'];
 $password1 = $_POST['password'];
-
-//Test that values are being passed
-//USED FOR TESTING ONLY. HAVE DISABLED FOR NORMAL FUNCTION.
-//echo "username1: ".$username1."<br>";
-//echo "password1: ".$password1."<br>";
-
 
 //Variables to test if records are found / if records match
 $usernamefound = false;
@@ -41,30 +34,36 @@ while ($row = $result->fetch_array(MYSQLI_BOTH))
 } //end while
 
 //verify username is found and password matches
-echo "<br>".$usernamefound."<br>";
-echo $passwordmatch."<br>";
+//echo "<br>".$usernamefound."<br>";
+//echo $passwordmatch."<br>";
 
 if($usernamefound == true && $passwordmatch == true)
 {
-    echo "User authenticated. Logging in.";
+// Set the session data:
+        session_start();
+        $_SESSION['username'] = $username1;
 
-    //redirect to chat screen
+    // Redirect:
+        header( 'Location: ../index.html' ) ;
 
 } //end if
 
 else
 {
-    echo "Authentication failed.";
+    ///echo "Authentication failed.";
     if ($usernamefound == false)
     {
-        echo "Username not found.";
+         //echo "Username not found.";
     } //end if
 
     else
     {
-        echo "Password doesn't match records.";
+         //echo "Password doesn't match records.";
     } //end else
 
+    // Redirect:
+    header( 'url: login.html' ) ;
+    
 } //end else
 
 
