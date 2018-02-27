@@ -31,12 +31,32 @@
 	<script src="js/socket.io-stream.js" type="text/javascript"></script>
 	<script src="/siofu/client.js"></script>
 
-	
+
 </head>
 
 <body>
-    <div id="top_bar">
-        <h1 id="title"> My Christain Chat </h1>
+    <div id="nav_bar">
+        <img id="logo" src="imgs/mccs_textlogo_small.png" >
+        <div id="nav_btn">
+            <a id="create_button" class="nav_button" name="button1"  href="newuser.html">Create Account</a>
+            <a id="login_button" class="nav_button" name="button1" href="login.html">Login</a>
+
+            <!--TODO: Get this button working to go back to rooms page. Maybe chang to logout-->
+            <a id="back_button" class="nav_button">Back</a>
+
+        </div>
+
+        <!-- drop menu html for small screens -->
+        <img id="menu_icon" class="upright" src="imgs/menu_icon.png" />
+        <img id="logo_small_screen" src="imgs/mccs_textlogo_small.png" />
+        <div id="drop_menu">
+            <a href="login.html"><button class="menu_item" >Login</button></a>
+            <a href="newuser.html"><button class="menu_item">Create Account</button></a>
+            <!-- TODO: Same as other Back button -->
+            <a><button class="menu_item">Back</button></a>
+        </div>
+        <!-- End drop menu html -->
+
     </div>
 
     <!--Boot strap -->
@@ -45,27 +65,33 @@
 					<div class = "col-md-4">
 			</div>
 			<div class = "col-md-8">
-				<div class = "well">
-					<h3> Online Username </h3>
+				<div>
+					<h3 id="name"> Conversation Name </h3>
+                    <h4 id="num_of_users"></h4>
 					<ul  class="list-group" id="user"></ul>
 				</div>
-				<div class = "col-md-8">
+				<div id="chat_container" class = "col-md-8">
 					<div class = "chat" id ="chat"></div>
 					<form id = "messageForm">
 						<div class = "form-group">
-						<br/>
-						<label> Enter Message </label>
-						<br/>
-						<textarea class = "form-control" id = "message"></textarea>
-						<br/>
-						<input type = "submit" class = "btn btn-primary" value = "Send Message" />
+						  <textarea class="form-control" id="message"></textarea>
+                            <div id="button_elements">
+						        <input id="send_button" type="submit" class = "btn btn-primary" value = "Send Message" />
+                                <button id="upload_btn" class="btn btn-primary">Prompt for File</button>
+                            </div>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-	
-			
+
+
+
+
+		<p><label>Choose File: <input type="file" id="upload_input"/></label></p>
+		<div id="file_drop" dropzone="copy" title="drop files for upload">Drop File</div>
+		
+
 		    <!--Client using socket.io -->
 			
 		<p><button id="upload_btn">Prompt for File</button></p>
@@ -79,20 +105,108 @@
 					var $messageForm = $('#messageForm');
 					var $message     = $('#message');
 					var $chat 		 = $('#chat');
-								
+
+                    var colorChange = false;
+
 					 <!--send  -->
 					$messageForm.submit(function(e){
 						e.preventDefault();
 						socket.emit('send message', 'User: ' + $message.val());
 						$message.val('');
+
+
+                        //Used to change colors if you sent message
+                        colorChange = true;
+
 						console.log("Form Submitted ");
+
 					});
 					
 					 <!--recieve -->
 					socket.on('new message', function(data){
-						$chat.append('<div class= "well">'+ data.msg+ '</div>' );
-							console.log("New Message ");
+
+                        if(colorChange){
+                            $chat.append('<div class= "sent">'+ data.msg+ '</div>' );
+                            $chat.scrollTop($chat.prop("scrollHeight")); //scroll to bottom of chat
+                        }
+                        else{
+				            $chat.append('<div class= "well">'+ data.msg+ '</div>' );
+                        }
+
+                        colorChange = false;
 					});
+
+                    socket.on('numOnline', function(data){
+                        document.getElementById("num_of_users").innerHTML = 'Current Number Of Users: ' + data.msg;
+							console.log(" # of onloine users"+ data.msg);
+					});
+
+					socket.on('file', function(data){
+						console.log("Recieved File");
+						document.getElementById('imgid').src = 'data:image/jpeg;base64,' + data;
+					});
+
+
+				});				
+			</script>
+
+            <!-- Script for images -->
+            <script type="text/javascript">
+			document.addEventListener("DOMContentLoaded", function(){
+			 console.log("Dom Loaded");
+				// Initialize instances:
+				//var socket = io.connect();
+				var socket = io.connect('http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com:8080');
+				var siofu = new SocketIOFileUpload(socket);
+                var colorChange = false;
+
+				// Configure the three ways that SocketIOFileUpload can read files:
+				document.getElementById("upload_btn").addEventListener("click", siofu.prompt, false);
+				siofu.listenOnInput(document.getElementById("upload_input"));
+				siofu.listenOnDrop(document.getElementById("file_drop"));
+
+				// Do something on upload progress:
+				siofu.addEventListener("progress", function(event){
+					var percent = event.bytesLoaded / event.file.size * 100;
+					console.log("File is", percent.toFixed(2), "percent loaded");
+				});
+
+				// Do something when a file is uploaded:
+				siofu.addEventListener("complete", function(event){
+					console.log("Upload Work"+ event.success);
+                    colorChange = true;
+					//console.log(event.file);  											// show file contents
+					//document.getElementById('imgid').src = 'data:image/jpeg' + event.file; // show file old way
+					//window.navigator.msSaveOrOpenBlob(event.file, 'File.jpg'); 			// download file
+				});
+
+
+				///// Recieve photos
+				socket.on('img', function(data){
+					console.log("Recieved File img style buddy");
+					var $chat = $('#chat');
+					console.log(data);
+					/////////////////////////////////
+					// THIS IS WHAT ADDS THE PHOTOS
+					/////////////////////////////////
+                    if(colorChange){
+                        $chat.append('<div class= "sent"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
+                        $chat.scrollTop($chat.prop("scrollHeight")); //scroll to bottom of chat
+                    }else{
+					   $chat.append('<div class= "well"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
+                    }
+
+                    colorChange = false;
+				});
+				socket.on('image', function(data){
+					console.log("Recieved File");
+					console.log(data);
+				});
+
+
+			}, false);
+			</script>
+
 					
 					socket.on('numOnline', function(data){
 						$chat.append('<div class= "well">'+'System: Current Number Of Users: ' + data.msg+ '</div>' );
@@ -156,14 +270,10 @@
 			</script> 
 		  
 	</div>
-    
-    <!-- Not sure where you want this but I'm putting the link to account creation here for the moment --> 
-        <input type="button" name="button1" value="Create Account" onClick="location.href='newuser.html'">
 
-        <input type="button" name="button1" value="Login" onClick="location.href='login.html'">
         
     <!-- JavaScript files -->
-
+    <script type="text/javascript" src="js/index_page.js"></script>
 		
 </body>
 
