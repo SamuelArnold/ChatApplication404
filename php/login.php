@@ -62,7 +62,7 @@ else
     } //end else
 
     // Redirect:
-    header( 'url: login.html' ) ;
+    header( 'url: ../login.html' ) ;
     
 } //end else
 
