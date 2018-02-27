@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
-	<base href="http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com/">
+	<!--<base href="http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com/">-->
 	
 	<!-- sources -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
@@ -36,7 +36,7 @@
 
 <body>
     <div id="nav_bar">
-        <img id="logo" src="imgs/mccs_textlogo_small.png" >
+        <img id="logo" src="imgs/mccs_textlogosmall.png" >
         <div id="nav_btn">
             <a id="create_button" class="nav_button" name="button1"  href="newuser.html">Create Account</a>
             <a id="login_button" class="nav_button" name="button1" href="login.html">Login</a>
@@ -48,7 +48,7 @@
 
         <!-- drop menu html for small screens -->
         <img id="menu_icon" class="upright" src="imgs/menu_icon.png" />
-        <img id="logo_small_screen" src="imgs/mccs_textlogo_small.png" />
+        <img id="logo_small_screen" src="imgs/mccs_textlogosmall.png" />
         <div id="drop_menu">
             <a href="login.html"><button class="menu_item" >Login</button></a>
             <a href="newuser.html"><button class="menu_item">Create Account</button></a>
@@ -88,14 +88,13 @@
 
 
 
-		<p><label>Choose File: <input type="file" id="upload_input"/></label></p>
-		<div id="file_drop" dropzone="copy" title="drop files for upload">Drop File</div>
+
 		
 
 		    <!--Client using socket.io -->
 			
-		<p><button id="upload_btn">Prompt for File</button></p>
-		<p><label>Choose File: <input type="file" id="upload_input"/></label></p>
+
+		<p><label id="choose_file_txt">Choose File: <input type="file" id="upload_input"/></label></p>
 		<div id="file_drop" dropzone="copy" title="drop files for upload">Drop File</div>
 		
 			<script>
@@ -207,68 +206,8 @@
 			}, false);
 			</script>
 
-					
-					socket.on('numOnline', function(data){
-						$chat.append('<div class= "well">'+'System: Current Number Of Users: ' + data.msg+ '</div>' );
-							console.log(" # of onloine users"+ data.msg);
-					});
-				
-					socket.on('file', function(data){  
-						console.log("Recieved File");
-						document.getElementById('imgid').src = 'data:image/jpeg;base64,' + data;
-					});    
-					
-		
-					
-				});	 			
-			</script>
-			<script type="text/javascript">
-			document.addEventListener("DOMContentLoaded", function(){
-			 console.log("Dom Loaded");
-				// Initialize instances: 
-				//var socket = io.connect();
-				var socket = io.connect('http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com:8080');
-				var siofu = new SocketIOFileUpload(socket);
-			 
-				// Configure the three ways that SocketIOFileUpload can read files: 
-				document.getElementById("upload_btn").addEventListener("click", siofu.prompt, false);
-				siofu.listenOnInput(document.getElementById("upload_input"));
-				siofu.listenOnDrop(document.getElementById("file_drop"));
-			 
-				// Do something on upload progress: 
-				siofu.addEventListener("progress", function(event){
-					var percent = event.bytesLoaded / event.file.size * 100;
-					console.log("File is", percent.toFixed(2), "percent loaded");
-				});
-			 
-				// Do something when a file is uploaded: 
-				siofu.addEventListener("complete", function(event){
-					console.log("Upload Work"+ event.success);
-					//console.log(event.file);  											// show file contents
-					//document.getElementById('imgid').src = 'data:image/jpeg' + event.file; // show file old way
-					//window.navigator.msSaveOrOpenBlob(event.file, 'File.jpg'); 			// download file 
-				});
-				
-				
-				///// Recieve photos 
-				socket.on('img', function(data){   
-					console.log("Recieved File img style buddy");
-					var $chat 		 = $('#chat');
-					console.log(data);
-					/////////////////////////////////
-					// THIS IS WHAT ADDS THE PHOTOS 
-					/////////////////////////////////
-					$chat.append('<div class= "well"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
-				});    
-				socket.on('image', function(data){  
-					console.log("Recieved File");
-					console.log(data);
-				});    
-			
-			 
-			}, false);
-			</script> 
-		  
+
+
 	</div>
 
         

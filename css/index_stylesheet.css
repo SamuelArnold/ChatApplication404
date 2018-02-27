@@ -256,6 +256,11 @@ a
     background: white
 }
 
+#upload_input, #file_drop, #choose_file_txt
+{
+    display: none;
+}
+
 
 /*** CSS for small screens ***/
 
