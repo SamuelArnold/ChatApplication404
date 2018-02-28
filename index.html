@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chat App</title>
+    <title>MCCS</title>
 
 
     <!-- This should set up the tab icon -->
 
-   <!--  <link rel="icon" href="imgs/favicon.ico" type="image/x-icon" />-->
+   <link rel="icon" href="imgs/favicon.ico" type="image/x-icon" />
 
    <!--  <link rel="shortcut icon" href="imgs/favicon.ico" type="image/ico" />-->
 	
@@ -91,7 +91,7 @@
 		
 
 		    <!--Client using socket.io -->
-			
+        <!-- DO NOT DELETE. These elements are hidden but for some reason need to be here to make it work -->
 
 		<p><label id="choose_file_txt">Choose File: <input type="file" id="upload_input"/></label></p>
 		<div id="file_drop" dropzone="copy" title="drop files for upload">Drop File</div>
@@ -107,22 +107,33 @@
 					var $message     = $('#message');
 					var $chat 		 = $('#chat');
 					var siofu = new SocketIOFileUpload(socket);
+                    var changeColor = false;
+
 					// <!--send  -->
 					$messageForm.submit(function(e){
 						e.preventDefault();
 						socket.emit('send message', 'User: ' + $message.val());
 						$message.val('');
+                        changeColor = true;
 						console.log("Form Submitted ");
 					});
 					
 					// <!--recieve --> 
 					socket.on('new message', function(data){
-						$chat.append('<div class= "well">'+ data.msg+ '</div>' );
+                        if(changeColor){
+                            $chat.append('<div class= "sent">'+ data.msg+ '</div>' );
+                            $chat.scrollTop($chat.prop("scrollHeight"));
+                        }else{
+                            $chat.append('<div class= "well">'+ data.msg+ '</div>' );
+                        }
+
+                        changeColor = false;
 							console.log("New Message ");
 					});
 					// recieve online members
 					socket.on('numOnline', function(data){
-						$chat.append('<div class= "well">'+'System: Current Number Of Users: ' + data.msg+ '</div>' );
+                        document.getElementById('num_of_users').innerHTML = 'Current Number Of Users: ' + data.msg;
+
 							console.log(" # of onloine users"+ data.msg);
 					});
 				
@@ -146,7 +157,8 @@
 			 
 				// Do something when a file is uploaded: 
 				siofu.addEventListener("complete", function(event){
-					console.log("Upload Work"+ event.success);
+					console.log("Upload Work "+ event.success);
+                    changeColor = true;
 					//console.log(event.file);  											// show file contents
 					//document.getElementById('imgid').src = 'data:image/jpeg' + event.file; // show file old way
 					//window.navigator.msSaveOrOpenBlob(event.file, 'File.jpg'); 			// download file 
@@ -160,13 +172,20 @@
 					/////////////////////////////////
 					// THIS IS WHAT ADDS THE PHOTOS 
 					/////////////////////////////////
+                    if(changeColor){
+                        $chat.append('<div class= "sent"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
+                        $chat.scrollTop($chat.prop("scrollHeight"));
+                    }else{
 					$chat.append('<div class= "well"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
+                    }
+
+                    changeColor = false;
 				});    
 			
 			 
 			}, false);
 			</script> 
-			</script>
+
 
 
 
