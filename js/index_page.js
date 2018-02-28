@@ -8,7 +8,7 @@ child.style.paddingRight =
     child.offsetWidth - child.clientWidth + 2 + "px"; //2px added to ensure fully hidden
 
 window.onload = function(){
-  $("#chat").animate({ scrollTop: $('#chat').prop("scrollHeight")}, 1000);
+   $("#chat").animate({ scrollTop: $("chat").prop("scrollHeight")}, 1000);
 };
 
 //toggle menu for small screens and mobile devices
@@ -28,4 +28,6 @@ function hideDropMenu(){
     }
 }
 
+//listen for screen size change
 mediaQuery.addListener(hideDropMenu);
+
