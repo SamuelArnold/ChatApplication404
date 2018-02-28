@@ -12,6 +12,10 @@ a
     text-decoration: none;
 }
 
+a:active {
+    color: red;
+}
+
 #title
 {
     width: 200px;
