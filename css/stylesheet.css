@@ -43,7 +43,7 @@ a:active {
 
 #container
 {
-    width: 1200px;
+    width: 1300px;
     height: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -157,8 +157,7 @@ fieldset {
     height: 600px;
     width: 300px;
     margin: 10px;
-    display: inline;
-    outline: 1px dashed red;
+    display: inline-block;
 }
 
 .button
