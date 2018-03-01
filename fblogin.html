@@ -46,13 +46,16 @@
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+    if (response.status === 'connected') 
+    {
+        // Logged into your app and Facebook.
+        testAPI();
+        window.location.href = "http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com/";
+    } 
+    else 
+    {
+        // The person is not logged into your app or we are unable to tell.
+        document.getElementById('status').innerHTML = 'Please log into this app.';
     }
   }
 
@@ -118,9 +121,13 @@
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-
-<fb:login-button scope="public_profile" onlogin="checkLoginState();">
-</fb:login-button>
+<div id="container">
+        <h1 id="heading">Login To Your Account</h1>
+	<img src="imgs/mccs_logosmall.png" align="middle" id="small_logo"/>
+    
+    <fb:login-button scope="public_profile" onlogin="checkLoginState();">
+    </fb:login-button>
+</div>
 
 <div id="status">
 </div>
