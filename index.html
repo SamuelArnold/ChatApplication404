@@ -183,14 +183,15 @@
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
 
-                
+   var username = "Anon";    
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) 
     {
       console.log('Successful login for: ' + response.name);
-        var $username = response.name;
-      
+       username = response.name;
+      if (response.name == '')
+		username = "Anon User: ";
     });
   }
                 
@@ -208,7 +209,8 @@
 					// <!--send  -->
 					$messageForm.submit(function(e){
 						e.preventDefault();
-						socket.emit('send message', $username + ': ' + $message.val());
+						//socket.emit('send message', $username + ': ' + $message.val());
+						socket.emit('send message', username + ': ' + $message.val());
 						$message.val('');
                         changeColor = true;
 						console.log("Form Submitted ");
