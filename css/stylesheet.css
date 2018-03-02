@@ -43,13 +43,11 @@ a:active {
 
 #container
 {
-    width: 1300px;
-    height: 600px;
+    width: 800px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 25px;
     text-align: center;
-    color: #222;
 }
 
 #heading
@@ -147,15 +145,37 @@ fieldset {
     display: none;
 }
 
-#story {
+#story1 {
+    margin: 20px;
+    align-content: center;
+    text-align: center;
+}
+
+#story2 {
     margin: 20px;
     align-content: center;
     text-align: justify;
 }
 
-#bio1, #bio2, #bio3, #bio4 {
+#story3 {
+    margin: 20px;
+    align-content: center;
+    text-align: center;
+}
+
+#profiles
+{
+    width: 1300px;
     height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 50px;
+    text-align: center;
+}
+
+#bio {
     width: 300px;
+	height: 600px;
     margin: 10px;
     display: inline-block;
 }
