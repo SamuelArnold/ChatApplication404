@@ -59,9 +59,11 @@ a
     margin-left: 70%;
 }
 
-#create_button
+#home_button
 {
     margin-left: 0;
+    height: 30px;
+    padding-top: 10px;
 }
 
 #login_button
