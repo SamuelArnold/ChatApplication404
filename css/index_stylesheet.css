@@ -23,6 +23,7 @@ a
     padding: 10px;
     height: 80px;
     background: #333;
+    transition: .5s;
 }
 
 .nav_button
@@ -37,6 +38,7 @@ a
     color: #FFF;
     border: none;
     border-radius: 17px;
+    transition: .5s;
 }
 
 .nav_button:hover
@@ -51,12 +53,14 @@ a
     height: 100px;
     width: 256px;
     margin-top: -10px;
+    transition: .5s;
 }
 
 #nav_btn
 {
     width: 370px;
     margin-left: 70%;
+    transition: .5s;
 }
 
 #home_button
@@ -98,6 +102,7 @@ a
     margin-top: -10px;
     align-content: center;
     display: none;
+    transition: .5s;
 }
 
 /* to rotate icon */
@@ -158,12 +163,14 @@ a
     text-align: center;
     color: #9A1B29;
     font-size: 30px;
+    transition: .5s;
 }
 
 #num_of_users
 {
     margin-top: -30px;
     text-align: center;
+    transition: .5s;
 }
 
 .col-md-8
@@ -204,11 +211,15 @@ a
 
 #messageForm
 {
-    width: 80%;
+    position: fixed;
+    width: 100%;
+    height: 110px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    bottom: 10px;
     text-align: center;
+    background: white;
+    background-image: url("../imgs/grey-washed-wall.png");
 }
 
 .form-group
@@ -318,16 +329,117 @@ a
 
     #messageForm
     {
-        width: 100%;
+       margin-left: auto;
+        margin-right: auto;
     }
 
-    .form-group
-    {
-        margin-left: 0px;
-    }
 
 }
 
+@media only screen and (max-width: 470px)
+{
+
+    .form-group
+    {
+        width: 300px;
+    }
+
+    #message
+    {
+
+        width: 200px;
+        margin-right: 10px;
+    }
+
+    #button_elements
+    {
+        width: 80px;
+    }
+
+
+}
+
+@media only screen and (max-height: 630px)
+{
+    #nav_bar
+    {
+        height: 40px;
+    }
+
+    #logo, #logo_small_screen
+    {
+        height: 50px;
+        width: 128px;
+        margin-top: -5px;
+    }
+
+    .nav_button
+    {
+        margin-top: 0px;
+        font-size: 15px;
+    }
+
+    #menu_icon
+    {
+        margin-top: 10px;
+        margin-left: 10px;
+        height: 20px;
+        width: 20px;
+    }
+
+    #name
+    {
+        font-size: 23px;
+    }
+
+    #num_of_users
+    {
+        margin-top: -20px;
+        font-size: 15px;
+    }
+
+    .sent
+    {
+        font-size: 12px;
+    }
+
+    .well
+    {
+        font-size: 12px;
+    }
+
+    #messageForm
+    {
+        height: 80px;
+    }
+
+    .form_group
+    {
+        height: 80px;
+    }
+
+    #message
+    {
+        height: 80px;
+    }
+
+    #button_elements
+    {
+        height: 80px;
+    }
+
+    #send_button
+    {
+        font-size: 12px;
+        height: 36px;
+    }
+
+    #upload_btn
+    {
+        font-size: 12px;
+        height: 36px;
+    }
+}
 
 /*
 
