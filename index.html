@@ -198,7 +198,12 @@
 					// <!--send  -->
 					$messageForm.submit(function(e){
 						e.preventDefault();
-						//socket.emit('send message', $username + ': ' + $message.val());
+
+                        //added so no blank messages are sent
+                        if($message.val() == ''){
+                            return;
+                        }
+
 						socket.emit('send message', username + ': ' + $message.val());
 						$message.val('');
                         changeColor = true;
@@ -260,17 +265,33 @@
 					// THIS IS WHAT ADDS THE PHOTOS 
 					/////////////////////////////////
                     if(changeColor){
-                        $chat.append('<div class= "sent"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
+                        $chat.append('<div class= "sent">' + username + ': <br><br><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
                         $chat.scrollTop($chat.prop("scrollHeight"));
                     }else{
-					$chat.append('<div class= "well"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" /></div>');
+					 $chat.append('<div class= "well">' + username + ': <br><br><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
                     }
 
                     changeColor = false;
 				});    
+
+
 			
 			 
 			}, false);
+
+            function clickedImage(element) {
+
+               var newTab = window.open();
+              setTimeout(function() {
+                 newTab.document.body.innerHTML = element.innerHTML;
+                newTab.document.getElementById('imgid').style.cursor="default";
+                newTab.document.getElementById('imgid').style.width="auto";
+                newTab.document.getElementById('imgid').style.maxWidth="100vw";
+
+                 }, 100);
+                return false;
+            }
+
 			</script> 
 
 
