@@ -197,6 +197,7 @@ a
     color: white;
     padding: 10px;
     border-radius: 10px;
+    transition: .5s;
 }
 
 .sent
@@ -207,6 +208,7 @@ a
     color: #9A1B29;
     padding: 10px;
     border-radius: 10px;
+    transition: .5s;
 }
 
 #messageForm
@@ -216,10 +218,12 @@ a
     height: 110px;
     margin-left: auto;
     margin-right: auto;
-    bottom: 10px;
+    bottom: 0px;
+    padding-bottom: 10px;
     text-align: center;
     background: white;
     background-image: url("../imgs/grey-washed-wall.png");
+    transition: .5s;
 }
 
 .form-group
@@ -227,6 +231,7 @@ a
     width: 450px;
     margin-left: auto;
     margin-right: auto;
+    transition: .5s;
 }
 
 #message
@@ -236,6 +241,7 @@ a
     height: 110px;
     resize: none;
     margin-right: 20px;
+    transition: .5s;
 }
 
 #button_elements
@@ -243,6 +249,7 @@ a
     float: left;
     height: 110px;
     width: 100px;
+    transition: .5s;
 }
 
 #send_button
@@ -329,13 +336,14 @@ a
 
     #messageForm
     {
-       margin-left: auto;
+        margin-left: auto;
         margin-right: auto;
     }
 
 
 }
 
+/* Make message box smaller */
 @media only screen and (max-width: 470px)
 {
 
@@ -395,7 +403,7 @@ a
     #num_of_users
     {
         margin-top: -20px;
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .sent
