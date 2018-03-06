@@ -175,9 +175,10 @@ a
 
 .col-md-8
 {
-    width: 80%;
+    width: 80vw;
     margin-left: auto;
     margin-right: auto;
+    padding-right: 10px;
     overflow: hidden;
 }
 
@@ -186,7 +187,7 @@ a
     width: 100%;
     height: 56vh;
     overflow-y: scroll;
-    padding-right: 0;
+    padding-right: 0px;
 }
 
 .well
