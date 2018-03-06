@@ -43,7 +43,7 @@ a:active {
 
 #container
 {
-    width: 800px;
+    z-index: -100;
     margin-left: auto;
     margin-right: auto;
     margin-top: 25px;
@@ -60,6 +60,8 @@ a:active {
 #small_logo
 {
     display: none;
+    height: 200px;
+    width: 200px;
 }
 
 .error
@@ -69,7 +71,6 @@ a:active {
 
 p
 {
-    margin-bottom: 0;
     font-size: 15px;
 }
 
@@ -79,6 +80,18 @@ input
     border-radius: 10px;
     border: none;
     background: #DDD;
+}
+
+#login_text
+{
+    display: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#fb_login
+{
+    display: none;
 }
 
 fieldset {
