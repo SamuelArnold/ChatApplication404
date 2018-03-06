@@ -258,6 +258,8 @@ a
     height: 50px;
     color: white;
     background: #9A1B29;
+    border: none;
+    border-radius: 10px;
 }
 
 #upload_btn
