@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<base href="http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com/">
+	<!--<base href="http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com/">
 	
 	<!-- sources -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
@@ -176,109 +176,114 @@
   // successful.  See statusChangeCallback() for when this call is made.
 
    var username = "Anon";    
+   var chaton = 1; 
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) 
     {
       console.log('Successful login for: ' + response.name);
        username = response.name;
-      if (response.name == '')
-		username = "Anon User: ";
+	   chaton = true;
     });
   }
-                
-                //////////////////////////////////////
-                //  send /recieve messages
-                ///////////////////////////////////////
-			 		var socket = io.connect('http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com:8080');
-					var $messageForm = $('#messageForm');
-					var $message     = $('#message');
-					var $chat 		 = $('#chat');
-					var siofu = new SocketIOFileUpload(socket);
-                    var changeColor = false;
-        
+     chaton = true;
+        if (username == "Anon"){
+			chaton = 0; 
+			alert(" Error: Please use Chrome, or IE and Sign into facebook");
+		}
+           if (	chaton ==1){
+					//////////////////////////////////////
+					//  send /recieve messages
+					///////////////////////////////////////
+						var socket = io.connect('http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com:8080');
+						var $messageForm = $('#messageForm');
+						var $message     = $('#message');
+						var $chat 		 = $('#chat');
+						var siofu = new SocketIOFileUpload(socket);
+						var changeColor = false;
+			
 
-					// <!--send  -->
-					$messageForm.submit(function(e){
-						e.preventDefault();
+						// <!--send  -->
+						$messageForm.submit(function(e){
+							e.preventDefault();
 
-                        //added so no blank messages are sent
-                        if($message.val() == ''){
-                            return;
-                        }
+							//added so no blank messages are sent
+							if($message.val() == ''){
+								return;
+							}
 
-						socket.emit('send message', username + ': ' + $message.val());
-						$message.val('');
-                        changeColor = true;
-						console.log("Form Submitted ");
+							socket.emit('send message', username + ': ' + $message.val());
+							$message.val('');
+							changeColor = true;
+							console.log("Form Submitted ");
+						});
+						
+						// <!--recieve --> 
+						socket.on('new message', function(data){
+							if(changeColor){
+								$chat.append('<div class= "sent">'+ data.msg+ '</div>' );
+								$chat.scrollTop($chat.prop("scrollHeight"));
+							}else{
+								$chat.append('<div class= "well">'+ data.msg+ '</div>' );
+							}
+
+							changeColor = false;
+								console.log("New Message ");
+						});
+						// recieve online members
+						socket.on('numOnline', function(data){
+							document.getElementById('num_of_users').innerHTML = 'Current Number Of Users: ' + data.msg;
+
+								console.log(" # of onloine users"+ data.msg);
+						});
+					
+						socket.on('file', function(data){  
+							console.log("Recieved File");
+							document.getElementById('imgid').src = 'data:image/jpeg;base64,' + data;
+						});    
+				 
+					
+				 
+					// Configure the three ways that SocketIOFileUpload can read files: 
+					document.getElementById("upload_btn").addEventListener("click", siofu.prompt, false);
+					siofu.listenOnInput(document.getElementById("upload_input"));
+					siofu.listenOnDrop(document.getElementById("file_drop"));
+				 
+					// Do something on upload progress: 
+					siofu.addEventListener("progress", function(event){
+						var percent = event.bytesLoaded / event.file.size * 100;
+						console.log("File is", percent.toFixed(2), "percent loaded");
+					});
+				 
+					// Do something when a file is uploaded: 
+					siofu.addEventListener("complete", function(event){
+						console.log("Upload Work "+ event.success);
+						changeColor = true;
+						//console.log(event.file);  											// show file contents
+						//document.getElementById('imgid').src = 'data:image/jpeg' + event.file; // show file old way
+						//window.navigator.msSaveOrOpenBlob(event.file, 'File.jpg'); 			// download file 
 					});
 					
-					// <!--recieve --> 
-					socket.on('new message', function(data){
-                        if(changeColor){
-                            $chat.append('<div class= "sent">'+ data.msg+ '</div>' );
-                            $chat.scrollTop($chat.prop("scrollHeight"));
-                        }else{
-                            $chat.append('<div class= "well">'+ data.msg+ '</div>' );
-                        }
+					
+					///// Recieve photos 
+					socket.on('img', function(data){   
+						console.log("Recieved File img style buddy");
+						//console.log(data);
+						/////////////////////////////////
+						// THIS IS WHAT ADDS THE PHOTOS 
+						/////////////////////////////////
+						if(changeColor){
+							$chat.append('<div class= "sent">' + username + ': <br><br><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
+							$chat.scrollTop($chat.prop("scrollHeight"));
+						}else{
+						 $chat.append('<div class= "well">' + username + ': <br><br><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
+						}
 
-                        changeColor = false;
-							console.log("New Message ");
-					});
-					// recieve online members
-					socket.on('numOnline', function(data){
-                        document.getElementById('num_of_users').innerHTML = 'Current Number Of Users: ' + data.msg;
-
-							console.log(" # of onloine users"+ data.msg);
-					});
-				
-					socket.on('file', function(data){  
-						console.log("Recieved File");
-						document.getElementById('imgid').src = 'data:image/jpeg;base64,' + data;
+						changeColor = false;
 					});    
-			 
-				
-			 
-				// Configure the three ways that SocketIOFileUpload can read files: 
-				document.getElementById("upload_btn").addEventListener("click", siofu.prompt, false);
-				siofu.listenOnInput(document.getElementById("upload_input"));
-				siofu.listenOnDrop(document.getElementById("file_drop"));
-			 
-				// Do something on upload progress: 
-				siofu.addEventListener("progress", function(event){
-					var percent = event.bytesLoaded / event.file.size * 100;
-					console.log("File is", percent.toFixed(2), "percent loaded");
-				});
-			 
-				// Do something when a file is uploaded: 
-				siofu.addEventListener("complete", function(event){
-					console.log("Upload Work "+ event.success);
-                    changeColor = true;
-					//console.log(event.file);  											// show file contents
-					//document.getElementById('imgid').src = 'data:image/jpeg' + event.file; // show file old way
-					//window.navigator.msSaveOrOpenBlob(event.file, 'File.jpg'); 			// download file 
-				});
-				
-				
-				///// Recieve photos 
-				socket.on('img', function(data){   
-					console.log("Recieved File img style buddy");
-					//console.log(data);
-					/////////////////////////////////
-					// THIS IS WHAT ADDS THE PHOTOS 
-					/////////////////////////////////
-                    if(changeColor){
-                        $chat.append('<div class= "sent">' + username + ': <br><br><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
-                        $chat.scrollTop($chat.prop("scrollHeight"));
-                    }else{
-					 $chat.append('<div class= "well">' + username + ': <br><br><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
-                    }
-
-                    changeColor = false;
-				});    
-
 
 			
+				} // chat on / off
 			 
 			}, false);
 
