@@ -25,6 +25,7 @@
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 </head>
+   
     
 <body>
 
@@ -35,7 +36,7 @@
 <div id="nav_bar">
         <img id="logo" src="imgs/mccs_textlogosmall.png" >
         <div id="nav_btn">
-            <a id="login_button" class="nav_button" name="button1" href="fblogin.html">Login</a>
+            <a id="login_button" class="nav_button" name="button1" onClick="FB.logout()">Logout</a>
             <a id="back_button" class="nav_button" href="about.html">About</a>
         </div>
 
@@ -43,7 +44,7 @@
         <img id="menu_icon" class="upright" src="imgs/menu_icon.png" />
         <img id="logo_small_screen" src="imgs/mccs_textlogosmall.png" />
         <div id="drop_menu">
-            <a href="fblogin.html"><button class="menu_item" >Login</button></a>
+            <button class="menu_item" onClick="FB.logout()">Logout</button>
             <a  href="about.html"><button class="menu_item">About</button></a>
         </div>
         <!-- End drop menu html -->
@@ -81,13 +82,9 @@
     } 
     else 
         // The person is not logged into your app or we are unable to tell.
-<<<<<<< HEAD
-        
-  }
-=======
-    }
+
   } //end statusChangeCallback
->>>>>>> master
+
 
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
