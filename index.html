@@ -245,6 +245,7 @@
 				 
 					// Configure the three ways that SocketIOFileUpload can read files: 
 					document.getElementById("upload_btn").addEventListener("click", siofu.prompt, false);
+
 					siofu.listenOnInput(document.getElementById("upload_input"));
 					siofu.listenOnDrop(document.getElementById("file_drop"));
 				 
@@ -252,12 +253,15 @@
 					siofu.addEventListener("progress", function(event){
 						var percent = event.bytesLoaded / event.file.size * 100;
 						console.log("File is", percent.toFixed(2), "percent loaded");
+                        socket.emit('send message', username + ': ');
+                        changeColor = true;
 					});
 				 
 					// Do something when a file is uploaded: 
 					siofu.addEventListener("complete", function(event){
 						console.log("Upload Work "+ event.success);
 						changeColor = true;
+
 						//console.log(event.file);  											// show file contents
 						//document.getElementById('imgid').src = 'data:image/jpeg' + event.file; // show file old way
 						//window.navigator.msSaveOrOpenBlob(event.file, 'File.jpg'); 			// download file 
@@ -271,7 +275,7 @@
 						/////////////////////////////////
 						// THIS IS WHAT ADDS THE PHOTOS 
 						/////////////////////////////////
-                        socket.emit('send message', username + ': ');
+
 						if(changeColor){
 							$chat.append('<div class= "sent"><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
 							$chat.scrollTop($chat.prop("scrollHeight"));
