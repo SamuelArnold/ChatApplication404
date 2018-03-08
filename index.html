@@ -271,11 +271,12 @@
 						/////////////////////////////////
 						// THIS IS WHAT ADDS THE PHOTOS 
 						/////////////////////////////////
+                        socket.emit('send message', username + ': ');
 						if(changeColor){
-							$chat.append('<div class= "sent">' + username + ': <br><br><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
+							$chat.append('<div class= "sent"><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
 							$chat.scrollTop($chat.prop("scrollHeight"));
 						}else{
-						 $chat.append('<div class= "well">' + username + ': <br><br><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
+						 $chat.append('<div class= "well"><span onclick="clickedImage(this);"><img id="imgid" img src=data:image/jpeg;base64,' +  data + ' alt="image to display" style="width:150px; cursor:pointer;"  /></span></div>');
 						}
 
 						changeColor = false;
