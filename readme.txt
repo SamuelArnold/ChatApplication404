@@ -13,6 +13,8 @@ Desc: Simple chat application using NODE.JS.
 HOW TO OPEN: Open the provided link and login with Facebook
 http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com
 
+PREFERRED BROWSERS: Chrome, Safari, and Internet Explorer; Firefox will not work correctly.
+
 I. FILE LIST (as of 3/8):
 -----
 css/
@@ -55,7 +57,7 @@ Assignments:
 Mathew G. - Login/Logout/Registration
 Tyler C. - Chat
 Sam A. - Connection Security
-Andrew H. - UX/UI
+Andrew H. - UX/UI/Readme
 
 
 III. BOTTLENECKS:
