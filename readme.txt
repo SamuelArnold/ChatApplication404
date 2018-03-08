@@ -53,9 +53,9 @@ II. DESIGN:
 Assignments:
 
 Mathew G. - Login/Logout/Registration
-Tyler C. - UX/UI
+Tyler C. - Chat
 Sam A. - Connection Security
-Andrew H. - Chat/Graphics
+Andrew H. - UX/UI
 
 
 III. BOTTLENECKS:
