@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<!--<base href="http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com/">
+	<base href="http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com/">
 	
 	<!-- sources -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
@@ -96,8 +96,7 @@
 
 
             <!-- Script for messages -->
-      	<script type="text/javascript">
-            
+      	<script type="text/javascript">            
 			document.addEventListener("DOMContentLoaded", function(){
 			 console.log("Dom Loaded");
                 
@@ -183,15 +182,15 @@
     {
       console.log('Successful login for: ' + response.name);
        username = response.name;
-	   chaton = true;
+	   chaton = 1;
     });
   }
-     chaton = true;
+     chaton = 1;
         if (username == "Anon"){
 			chaton = 0; 
-			alert(" Error: Please use Chrome, or IE and Sign into facebook");
+		//	alert(" Error: Please use Chrome, or IE and Sign into facebook");
 		}
-           if (	chaton ==1){
+         //  if (chaton ==1){
 					//////////////////////////////////////
 					//  send /recieve messages
 					///////////////////////////////////////
@@ -283,7 +282,7 @@
 					});    
 
 			
-				} // chat on / off
+			//	} // chat on / off
 			 
 			}, false);
 
@@ -298,9 +297,24 @@
 
                  }, 100);
                 return false;
-            }
+          }
+			// Handle inactive page.
+			// from https://stackoverflow.com/questions/10849432/how-to-refresh-page-if-there-is-no-user-activity-for-few-seconds-using-javascrip
+			function setIdle(cb, seconds) {
+			var timer; 
+			var interval = seconds * 1000;
+			function refresh() {
+					clearInterval(timer);
+					timer = setTimeout(cb, interval);
+			};
+			$(document).on('keypress click', refresh);
+			refresh();
+		}
 
-			</script> 
+				setIdle(function() {
+					location.href = location.href;
+				}, 15);
+					</script> 
 
 
 
