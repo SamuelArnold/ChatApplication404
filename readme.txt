@@ -13,7 +13,7 @@ Desc: Simple chat application using NODE.JS.
 HOW TO OPEN: Open the provided link and login with Facebook
 http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com
 
-I. FILE LIST (as of 2/27):
+I. FILE LIST (as of 3/8):
 -----
 css/
   index_stylesheet.css          Style for the actual chat
@@ -22,6 +22,10 @@ css/
 
 imgs/  (all of note, at least)
   adminicon.png
+  bio1.png
+  bio2.png
+  bio3.png
+  bio4.png
   favicon.ico                   Browser tab icon
   grey-washed-wall.png          Site background
   mccs_logosmall.png            Official reduced application icon
@@ -36,23 +40,12 @@ js/
   login_animation.js            Animations for the rendering of the login page
   newuser_animation.js          Animations for the rendering of the sign-up page
   ++a whole lot of other js files
-  
-php/
-  config.php                 
-  create_user.php         
-  login.php
-  script.php
-  version_check.php
 
 about.html                      Page about the creators
+fblogin.html                    Sign-in page for users
 index.html                      The chat itself
 log.txt                         Message log file
-login.html                      Sign-in page for users
-newuser.html                    Sign-up page for new users
 readme.txt                      What you're reading right now!
-
-website for the NODE.JS:
-ec2-18-216-64-197.us-east-2.compute.amazonaws.com:8080
 
 
 II. DESIGN:
@@ -74,4 +67,7 @@ So far not many problems have arisen that haven't been able to be handled. We ha
 
 (2/27)
 The due date is set, March 8th! We have figured out image sharing and are working on video/audio sharing. To handle the login process we might have to switch to Facebook API, but all in all its a working product!
+
+(3/8)
+It is the final day. The application is practically finished except for a few minor tweaks with the chat and login. We're giving it all we got!
 
