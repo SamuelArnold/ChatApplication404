@@ -10,8 +10,10 @@ Matt G.
 Name: MY CHRISTIAN CHAT SERVER (formerly ChatApp404)
 Desc: Simple chat application using NODE.JS.
 
+HOW TO OPEN: Open the provided link and login with Facebook
+http://ec2-18-216-64-197.us-east-2.compute.amazonaws.com
 
-I. FILE LIST (as of 2/20):
+I. FILE LIST (as of 2/27):
 -----
 css/
   index_stylesheet.css          Style for the actual chat
